@@ -1,0 +1,7 @@
+
+version: 0.1.0
+steps:
+  - build: -t {{.Values.REGISTRY1}}/azdodockeragent:$ID . -f ../Dockerfile
+  - push: ["{{.Values.REGISTRY1}}/azdodockeragent:$ID"]
+  - build: -t {{.Values.REGISTRY2}}/azdodockeragent:$ID . -f ../Dockerfile
+  - push: ["{{.Values.REGISTRY2}}/azdodockeragent:$ID"]
